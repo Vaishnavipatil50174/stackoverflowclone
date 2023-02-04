@@ -6,74 +6,76 @@ import downVotes from '../../assets/sort-down.svg'
 import './Questions.css'
 import Avatar from '../../components/Avatar/Avatar'
 import DisplayAnswer from './DisplayAnswer'
+import { useSelector} from 'react-redux'
 const QuestionsDetails = () => {
 
 
     const { id }= useParams()
-    console.log(id)
-    var questionsList = [{ 
-        id: '1',
-        upVotes: 3,
-        downVotes: 2,
-        noOfAnswers: 2,
-        questionTitle: "What is a function?",
-        questionBody: "It meant to be",
-        questionTags: ["java", "node js", "react js", "mongo db", "express js"],
-        userPosted: "mano",
-        userId: 1,
-        askedOn: "jan 1",
-        answer: [{
-          answerBody: "Answer",
-          userAnswered: 'kumar',
-          answeredOn: "jan 2",
-          userId: 2,
-        }]
+    const questionsList = useSelector(state => state.questionsReducer)
+    
+    //var questionsList = [{ 
+        //id: '1',
+        //upVotes: 3,
+        //downVotes: 2,
+        //noOfAnswers: 2,
+        //questionTitle: "What is a function?",
+        //questionBody: "It meant to be",
+        //questionTags: ["java", "node js", "react js", "mongo db", "express js"],
+        //userPosted: "mano",
+        //userId: 1,
+        //askedOn: "jan 1",
+        //answer: [{
+          //answerBody: "Answer",
+          //userAnswered: 'kumar',
+          //answeredOn: "jan 2",
+          //userId: 2,
+        //}]
         
-     },{ 
-         id: '2',
-         upVotes: 3,
-         downVotes: 2,
-         noOfAnswers: 0,
-         questionTitle: "What is a function?",
-         questionBody: "It meant to be",
-         questionTags: ["javascript", "R", "python"],
-         userPosted: "mano",
-         askedOn: "jan 1",
-         userId: 1,
-         answer: [{
-            answerBody: "Answer",
-            userAnswered: 'kumar',
-            answeredOn: "jan 2",
-            userId: 2,
-         }]
+     //},{ 
+         //id: '2',
+         //upVotes: 3,
+         //downVotes: 2,
+         //noOfAnswers: 0,
+         //questionTitle: "What is a function?",
+         //questionBody: "It meant to be",
+         //questionTags: ["javascript", "R", "python"],
+         //userPosted: "mano",
+         //askedOn: "jan 1",
+         //userId: 1,
+         //answer: [{
+            //answerBody: "Answer",
+            //userAnswered: 'kumar',
+            //answeredOn: "jan 2",
+            //userId: 2,
+         //}]
          
-     },{ 
-         id: '3',
-         upVotes: 3,
-         downVotes: 2,
-         noOfAnswers: 0,
-         questionTitle: "What is a function?",
-         questionBody: "It meant to be",
-         questionTags: ["javascript", "R", "python"],
-         userPosted: "mano",
-         askedOn: "jan 1",
-         userId: 1,
-         answer: [{
-            answerBody: "Answer",
-            userAnswered: 'kumar',
-            answeredOn: "jan 2",
-            userId: 2,
-         }]
+     //},{ 
+         //id: '3',
+         //upVotes: 3,
+         //downVotes: 2,
+         //noOfAnswers: 0,
+         //questionTitle: "What is a function?",
+         //questionBody: "It meant to be",
+         //questionTags: ["javascript", "R", "python"],
+         //userPosted: "mano",
+         //askedOn: "jan 1",
+         //userId: 1,
+         //answer: [{
+            //answerBody: "Answer",
+            //userAnswered: 'kumar',
+            //answeredOn: "jan 2",
+            //userId: 2,
+         //}]
          
-  }]
+  //}]
   return (
     <div className='question-details-page'>
         {
-            questionsList === null ?
+            questionsList.data === null ?
             <h1>Loading....</h1>:
             <>
                 {
-                    questionsList.filter(question => question.id === id).map(question => (
+                    questionsList.data.filter(question => question.id === id).map(question => (
                         <div key={question.id}>
                             {console.log(question)}
                             <section className='question-details-container'>
@@ -146,5 +148,11 @@ const QuestionsDetails = () => {
     </div>
   )
 }
+
+  
+
+
+
+  
 
 export default QuestionsDetails
