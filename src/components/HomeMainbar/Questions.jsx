@@ -15,7 +15,7 @@ const Questions = ({question}) => {
         </div>
         
         <div className='display-question-details'>
-          <Link to={`Questions/${question.id}`} className='question-title-link'>{question.questionTitle}</Link>
+          <Link to={`Questions/${question._id}`} className='question-title-link'>{question.questionTitle}</Link>
 
           <div className='display-tags-time'>
             <div className='display-tags'>
