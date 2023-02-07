@@ -19,6 +19,8 @@ const Navbar = () => {
     
     dispatch(setCurrentUser( JSON.parse(localStorage.getItem('Profile'))))
 },[dispatch])
+
+
   return (
     <nav className='main-nav'>
         <div className='navbar'>
@@ -35,7 +37,7 @@ const Navbar = () => {
             { User === null ? 
                 <Link to='/Auth' className='nav-item nav-links'>Lon in</Link> :
                 <>
-                    <Avatar backgroundColor='#009dff' px="10px" py="7px" borderRadius="50%" color='white'><Link to='/User' style={{color:"white", textDecoration:'none'}}>V</Link></Avatar>
+                    <Avatar backgroundColor='#009dff' px="10px" py="7px" borderRadius="50%" color='white'><Link to='/User' style={{color:"white", textDecoration:'none'}}>{User.result.name.charAt(0).toUpperCase()}</Link></Avatar>
                     <button className='nav-item nav-links'>Log Out</button>
                 </>
             
