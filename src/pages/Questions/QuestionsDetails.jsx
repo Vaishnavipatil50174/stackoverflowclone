@@ -114,7 +114,7 @@ const QuestionsDetails = () => {
   return (
     <div className='question-details-page'>
         {
-            questionsList.data === null ?
+            questionsList?.data === null ?
             <h1>Loading....</h1>:
             <>
                 {
@@ -126,7 +126,7 @@ const QuestionsDetails = () => {
                                 <div className='question-details-container-2'>
                                     <div className="question-votes">
                                         <img src={upVotes} alt=""  width='18' onClick={handleUpVote}/>
-                                        <p>{question.upVotes.length - question.downVotes.length}</p>
+                                        <p>{question.upVotes?.length - question.downVotes?.length || 0}</p>
                                         <img src={downVotes} alt='' width='18' onClick={handleDownVote} />
                                     </div>
                                     <div style={{width:"100%"}}>
